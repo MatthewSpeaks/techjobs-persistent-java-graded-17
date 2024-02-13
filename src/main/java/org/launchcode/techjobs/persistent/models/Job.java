@@ -13,16 +13,18 @@ public class Job extends AbstractEntity {
     private Employer employer;
 
     @ManyToMany
-    private final List<Skill> skills = new ArrayList<>();
+    private List<Skill> skills = new ArrayList<>();
 
     public Job() {
     }
 
     // Initialize the id and value fields.
-    public Job(Employer employer, Skill someSkills) {
+
+    public Job(Employer employer, List<Skill> skills) {
         this.employer = employer;
-        skills.add(someSkills);
+        this.skills = skills;
     }
+
 
     // Getters and setters.
 
@@ -39,5 +41,7 @@ public class Job extends AbstractEntity {
         return skills;
     }
 
-
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
 }
